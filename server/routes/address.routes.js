@@ -2,11 +2,12 @@ const express = require('express');
 const router = express();
 const Address = require('../models/address.model');
 
+//Request URL http://localhost:3000/address for address details
 router.get('/', (req, res) => {
     res.render('index', { "message": 'Welcome To Address Section' })
 });
 
-//Request URL Post http://localhost:3000/address/all for all Address
+//Request URL http://localhost:3000/address/all for all address
 router.get('/all', (req, res) => {
     Address.find((err, address) => {
         if (err) throw err;
@@ -14,7 +15,7 @@ router.get('/all', (req, res) => {
     })
 });
 
-//Request URL Get http://localhost:3000/address/details/61b6fc4cffa1e1568830c8bc 
+//Request URL http://localhost:3000/address/details/id for address details
 router.get("/details/:id", (req, res) => {
     Address.findById(req.params.id, (err, address) => {
         if (err) throw err;
@@ -22,7 +23,7 @@ router.get("/details/:id", (req, res) => {
     })
 });
 
-//Request URL address Add http://localhost:3000/Address/add 
+//Request URL http://localhost:3000/Address/add for add address
 router.post('/add', (req, res) => {
     var address = new Address(req.body);
     Address.create(address, (err, address) => {
@@ -31,7 +32,7 @@ router.post('/add', (req, res) => {
     })
 });
 
-//Request URL address Update http://localhost:3000/address/update/61b6fc4cffa1e1568830c8bc
+//Request URL http://localhost:3000/address/update/id for update address
 router.put('/update/:id', (req, res) => {
     var address = new Address(req.body);
     Address.findByIdAndUpdate(req.params.id, address, (err, address) => {
@@ -40,7 +41,7 @@ router.put('/update/:id', (req, res) => {
     })
 });
 
-//Request URL address Delete http://localhost:3000/address/delete/61b6fc4cffa1e1568830c8bc
+//Request URL http://localhost:3000/address/delete/id for delete address
 router.delete('/delete/:id', (req, res) => {
     Address.findByIdAndDelete(req.params.id, (err, address) => {
         if (err) throw err;

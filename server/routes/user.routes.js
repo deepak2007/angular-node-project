@@ -2,11 +2,12 @@ const express = require('express');
 const router = express();
 const Users = require('../models/user.model');
 
+//Request URL http://localhost:3000/users for users section
 router.get('/', (req, res) => {
     res.render('index', { "message": 'Welcome To User Section' })
 });
 
-//Request URL Post http://localhost:3000/users/all for all user
+//Request URL http://localhost:3000/users/all for all users
 router.get('/all', (req, res) => {
     Users.find((err, user) => {
         if (err) throw err;
@@ -14,7 +15,7 @@ router.get('/all', (req, res) => {
     })
 });
 
-//Request URL Get http://localhost:3000/users/details/61b6fc4cffa1e1568830c8bc 
+//Request URL http://localhost:3000/users/details/id for user details
 router.get("/details/:id", (req, res) => {
     Users.findById(req.params.id, (err, user) => {
         if (err) throw err;
@@ -22,7 +23,7 @@ router.get("/details/:id", (req, res) => {
     })
 });
 
-//Request URL user Add http://localhost:3000/users/add 
+//Request URL http://localhost:3000/users/add for add user
 router.post('/add', (req, res) => {
     var user = new Users(req.body);
     Users.create(user, (err, user) => {
@@ -31,7 +32,7 @@ router.post('/add', (req, res) => {
     })
 });
 
-//Request URL user Update http://localhost:3000/users/update/61b6fc4cffa1e1568830c8bc
+//Request URL http://localhost:3000/users/update/id for update user
 router.put('/update/:id', (req, res) => {
     var user = new Users(req.body);
     Users.findByIdAndUpdate(req.params.id, user, (err, user) => {
@@ -40,7 +41,7 @@ router.put('/update/:id', (req, res) => {
     })
 });
 
-//Request URL user Delete http://localhost:3000/users/delete/61b6fc4cffa1e1568830c8bc
+//Request URL http://localhost:3000/users/delete/id for delete user
 router.delete('/delete/:id', (req, res) => {
     Users.findByIdAndDelete(req.params.id, (err, user) => {
         if (err) throw err;

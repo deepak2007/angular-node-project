@@ -2,12 +2,12 @@ const express = require('express');
 const router = express();
 const Orders = require('../models/order.model');
 
-//Request URL Post http://localhost:3000/orders for home page
+//Request URL http://localhost:3000/orders for order section
 router.get('/', (req, res) => {
     res.render('index', { "message": 'Welcome To Order Section' })
 });
 
-//Request URL Post http://localhost:3000/orders/all for all orders
+//Request URL http://localhost:3000/orders/all for all orders
 router.get('/all', (req, res) => {
     Orders.find((err, order) => {
         if (err) throw err;
@@ -15,7 +15,7 @@ router.get('/all', (req, res) => {
     })
 });
 
-//Request URL Get http://localhost:3000/orders/details/61b6fc4cffa1e1568830c8bc 
+//Request URL http://localhost:3000/orders/details/id for order details
 router.get("/details/:id", (req, res) => {
     Orders.findById(req.params.id, (err, order) => {
         if (err) throw err;
@@ -23,7 +23,7 @@ router.get("/details/:id", (req, res) => {
     })
 });
 
-//Request URL Order Add http://localhost:3000/orders/add 
+//Request URL http://localhost:3000/orders/add for add order
 router.post('/add', (req, res) => {
     var order = new Orders(req.body);
     Orders.create(order, (err, order) => {
@@ -32,7 +32,7 @@ router.post('/add', (req, res) => {
     })
 });
 
-//Request URL Order Update http://localhost:3000/orders/update/61b6fc4cffa1e1568830c8bc
+//Request URL http://localhost:3000/orders/update/id for update order
 router.put('/update/:id', (req, res) => {
     var order = new Orders(req.body);
     Orders.findByIdAndUpdate(req.params.id, order, (err, order) => {
@@ -41,7 +41,7 @@ router.put('/update/:id', (req, res) => {
     })
 });
 
-//Request URL Order Delete http://localhost:3000/orders/delete/61b6fc4cffa1e1568830c8bc
+//Request URL http://localhost:3000/orders/delete/id for delete order
 router.delete('/delete/:id', (req, res) => {
     Orders.findByIdAndDelete(req.params.id, (err, order) => {
         if (err) throw err;
