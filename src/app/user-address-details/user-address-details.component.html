@@ -1,0 +1,18 @@
+<main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col" *ngFor="let address of addressData">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal"><a routerLink='/user-address' class="btn btn-outline-success">Add New Address</a></h4>
+                </div>
+                <div class="card-body">
+                    <h3>Address</h3>
+                    <p>{{address.name}}</p>
+                    <p>{{address.location}}</p>
+                    <a [routerLink]="['/user-address-edit', address._id]" class="btn btn-lg btn-primary me-2">Edit</a>
+                    <button (click)="deleteAddress(address._id)" class="btn btn-lg  btn-danger">Delete</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

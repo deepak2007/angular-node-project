@@ -1,0 +1,56 @@
+<%- include('../../views/head') %>
+
+    <%- include('../../views/header') %>
+        <div class="container">
+            <h2>Employee Detail</h2><br />
+            <div class="card">
+                <div class="card-header">
+                    <b>Details of <%= employee.name %>:</b>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th style="width: 30%;">Employee Id</th>
+                                <td>
+                                    <%= employee._id %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Employee Name</th>
+                                <td>
+                                    <%= employee.name %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Employee Position</th>
+                                <td>
+                                    <%= employee.position %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Employee Salary</th>
+                                <td>
+                                    <%= employee.salary %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Employee Updated At</th>
+                                <td>
+                                    <%= employee.updated_at %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+                <div class="card-footer">
+                    <a href="/employees" class="btn btn-secondary m-2">Go BacK</a>
+                    <a href="/employees/employee-update/<%= employee._id %>" class="btn btn-primary">Update</a>
+                    <form method="post" action="/employees/employee-delete/<%= employee._id %>">
+                        <button class="btn btn-danger m-2">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../../views/footer') %>

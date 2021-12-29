@@ -1,0 +1,52 @@
+<h3>Update Food</h3>
+<form name="form" (ngSubmit)="f.form.valid && updateProduct()" #f="ngForm" novalidate>
+    <div class="col-sm-6 mb-3">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="product.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+            required />
+        <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+            <div *ngIf="name.errors && name.errors['required']">Name is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="food">Food:</label>
+        <input type="text" class="form-control" name="food" [(ngModel)]="product.food" #food="ngModel" [ngClass]="{ 'is-invalid': f.submitted && food.invalid }"
+            required />
+        <div *ngIf="f.submitted && food.invalid" class="invalid-feedback">
+            <div *ngIf="food.errors && food.errors['required']">Food is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="price">Price:</label>
+        <input type="text" class="form-control" name="price" [(ngModel)]="product.price" #price="ngModel" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }"
+            required />
+        <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+            <div *ngIf="price.errors && price.errors['required']">Price is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="location">Location:</label>
+        <input type="text" class="form-control" name="location" [(ngModel)]="product.location" #location="ngModel" [ngClass]="{ 'is-invalid': f.submitted && location.invalid }"
+            required />
+        <div *ngIf="f.submitted && location.invalid" class="invalid-feedback">
+            <div *ngIf="location.errors && location.errors['required']">Location is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="rating">Rating:</label>
+        <select class="form-control custom-select mr-sm-2" id="inlineFormCustomSelect" name="rating" [(ngModel)]="product.rating"
+            #rating="ngModel" [ngClass]="{ 'is-invalid': f.submitted && rating.invalid }" required>
+          <option selected>Choose Rating</option>
+          <option value="1">One*</option>
+          <option value="2">Two*</option>
+          <option value="3">Three*</option>
+          <option value="4">Four*</option>
+          <option value="5">Five*</option>
+        </select>
+        <div *ngIf="f.submitted && rating.invalid" class="invalid-feedback">
+            <div *ngIf="rating.errors && rating.errors['required']">Rating is required.</div>
+        </div>
+    </div>
+    <a class="btn btn-secondary" routerLink="/products">Go Back</a> |
+    <button type="submit" class="btn btn-success">Update</button>
+</form>

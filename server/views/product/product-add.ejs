@@ -1,0 +1,41 @@
+<%- include('../../views/head') %>
+
+    <%- include('../../views/header') %>
+
+        <div class="container">
+            <h2>Add Product</h2><br />
+
+            <form method="POST" action="/products">
+                <input type="hidden" class="form-control" name="feature_image" value="https://b.zmtcdn.com/data/res_imagery/71799_RESTAURANT_1422bd9c0916341e29b9df6cf03b213d.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="food" class="form-label">Food</label>
+                    <input type="text" class="form-control" name="food">
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" class="form-control" name="price">
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" name="location">
+                </div>
+
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="text" class="form-control" name="rating">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add</button>
+                <a href="/products" class="btn btn-secondary">Go Back</a>
+            </form>
+
+        </div>
+
+        <%- include('../../views/footer') %>

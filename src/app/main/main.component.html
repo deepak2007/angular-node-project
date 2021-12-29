@@ -1,0 +1,52 @@
+<!-- Header section start here -->
+<header class="p-3 mb-3 bg-light border-bottom">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a routerLink='products' class="nav-link px-2 link-dark">Products</a></li>
+                <li><a routerLink='product-add' class="nav-link px-2 link-dark">Add Food</a></li>
+            </ul>
+
+            <div *ngIf="!checkLoginStatus()">
+                <a routerLink='login' class="btn btn-success me-2">Login</a>
+                <a routerLink='register' class="btn btn-warning me-2">Register</a>
+            </div>
+
+            <div *ngIf="checkLoginStatus()">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a routerLink='/order' class="nav-link px-2 link-dark">Cart</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown text-end" *ngIf="checkLoginStatus()">
+                <a href="" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+              </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                    <li><a routerLink='order' class="dropdown-item">Track Order</a></li>
+                    <li><a routerLink='user-profile' class="dropdown-item">Profile</a></li>
+                    <li><a routerLink='user-address-details' class="dropdown-item">Address</a></li>
+                    <li><a routerLink='setting-page' class="dropdown-item">Settings</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header section end here -->
+
+<!-- Main section start here -->
+<main>
+    <div class="container py-4">
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Main section end here -->

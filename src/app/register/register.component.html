@@ -1,0 +1,52 @@
+<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+    <h1 class="h3 mb-3 fw-normal">Register</h1>
+    <div class="col-sm-6 mb-3">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="user.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+            required />
+        <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+            <div *ngIf="name.errors && name.errors['required']">Name is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="user.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+            required />
+        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+            <div *ngIf="email.errors && email.errors['required']">Email is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="phone">Phone:</label>
+        <input type="text" class="form-control" name="phone" [(ngModel)]="user.phone" #phone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && phone.invalid }"
+            required />
+        <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
+            <div *ngIf="phone.errors && phone.errors['required']">Phone is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="profession">Profession:</label>
+        <input type="text" class="form-control" name="profession" [(ngModel)]="user.profession" #profession="ngModel" [ngClass]="{ 'is-invalid': f.submitted && profession.invalid }"
+            required />
+        <div *ngIf="f.submitted && profession.invalid" class="invalid-feedback">
+            <div *ngIf="profession.errors && profession.errors['required']">Profession is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
+            required />
+        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+            <div *ngIf="password.errors && password.errors['required']">Password is required.</div>
+        </div>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required />
+        <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
+            <div *ngIf="confirmPassword.errors && confirmPassword.errors['required']">Confirm Password is required.</div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">register</button>
+</form>

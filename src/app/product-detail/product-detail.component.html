@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header">
+        Details of <b>{{ product.name }}</b>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Hotel</th>
+                    <td>{{ product.name }}</td>
+                </tr>
+                <tr>
+                    <th>Food</th>
+                    <td>{{ product.food }}</td>
+                </tr>
+                <tr>
+                    <th>Place</th>
+                    <td>{{ product.location }}</td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td>{{ product.price }}</td>
+                </tr>
+                <tr>
+                    <th>Rating</th>
+                    <td>{{ product.rating }}<strong>*</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <a routerLink='/products' class="btn btn-secondary">Go Back</a> |
+        <button (click)="deleteProduct()" class="btn btn-danger">Delete</button> |
+        <a [routerLink]="['/product-update', product._id]" class="btn btn-primary">Update</a>
+    </div>
+</div>

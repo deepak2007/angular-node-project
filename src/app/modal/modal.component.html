@@ -1,0 +1,14 @@
+<div class="modal">
+    <div class="modal-overlay" (click)="close($event)"></div>
+    <div class="modal--modal-content">
+        <span>Are you sure you want to add this item?</span>
+        <div class="h-divider"></div>
+        <div>Add order to cart?</div>
+        <strong><div> <span [innerHTML]="foodName"></span> | &#8377;<span [innerHTML]="foodPrice"></span></div></strong>
+        <br>       
+        <div class="h-divider"></div>
+        <button (click)="close($event)" class="btn btn-outline-secondary px-4 me-2">Close</button>
+        <button (click)="addToCart(foodId, foodName, foodPrice)"  class="btn btn-outline-primary px-4">Add to Cart</button>
+            <a class="modal--close-btn" (click)="close($event)">X</a>
+    </div>   
+</div>

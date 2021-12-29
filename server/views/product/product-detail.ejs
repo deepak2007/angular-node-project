@@ -1,0 +1,62 @@
+<%- include('../../views/head') %>
+
+    <%- include('../../views/header') %>
+        <div class="container">
+            <h2>Product Detail</h2><br />
+            <div class="card">
+                <div class="card-header">
+                    <b>Details of <%= product.name %>:</b>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th style="width: 30%;">Employee Id</th>
+                                <td>
+                                    <%= product._id %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Hotel</th>
+                                <td>
+                                    <%= product.name %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Food</th>
+                                <td>
+                                    <%= product.food %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Price</th>
+                                <td>
+                                    <%= product.price %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Image</th>
+                                <td>
+                                    <img src="<%= product.feature_image %>" height="10%" width="10%" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Employee Updated At</th>
+                                <td>
+                                    <%= product.updated_at %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ul>
+                <div class="card-footer">
+                    <a href="/products" class="btn btn-secondary m-2">Go BacK</a>
+                    <a href="/products/product-update/<%= product._id %>" class="btn btn-primary">Update</a>
+                    <form method="post" action="/products/product-delete/<%= product._id %>">
+                        <button class="btn btn-danger m-2">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../../views/footer') %>

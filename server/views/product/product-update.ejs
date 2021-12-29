@@ -1,0 +1,35 @@
+<%- include('../../views/head') %>
+
+    <%- include('../../views/header') %>
+        <div class="container">
+            <h2>Update Product</h2><br />
+
+            <form method="POST" action="/products/product-update/<%= product._id %>">
+                <input type="hidden" class="form-control" name="_id" value="<%= product._id %>">
+                <input type="hidden" class="form-control" name="feature_image" value="<%= product.feature_image %>">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" value="<%= product.name %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="food" class="form-label">Food</label>
+                    <input type="text" class="form-control" name="food" value="<%= product.food %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" class="form-control" name="price" value="<%= product.price %>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="text" class="form-control" name="rating" value="<%= product.rating %>">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+
+        <%- include('../../views/footer') %>
