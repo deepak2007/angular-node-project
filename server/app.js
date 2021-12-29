@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const indexRoutes = require('./routes/index.routes');
-const employeeRoutes = require('./routes/employee.routes');
 const productRoutes = require('./routes/product.routes');
 const orderRoutes = require('./routes/order.routes');
 const userRoutes = require('./routes/user.routes');
@@ -21,7 +20,6 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 app.use('/', indexRoutes);
-app.use('/employees', employeeRoutes);
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 app.use('/orders', orderRoutes);
